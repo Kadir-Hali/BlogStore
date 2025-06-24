@@ -18,6 +18,11 @@ namespace BlogStore.BusinessLayer.Concrete
             _articleDal = articleDal;
         }
 
+        public AppUser TGetAppUserByArticleId(int id)
+        {
+            return _articleDal.GetAppUserByArticleId(id);
+        }
+
         public void TDelete(int id)
         {
             _articleDal.Delete(id);
@@ -53,6 +58,11 @@ namespace BlogStore.BusinessLayer.Concrete
         public void TUpdate(Article entity)
         {
             _articleDal.Update(entity);
+        }
+
+        public List<Article> TGetTop3PopularArticles()
+        {
+            return _articleDal.GetTop3PopularArticles();
         }
     }
 }
