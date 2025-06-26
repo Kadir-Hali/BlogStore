@@ -45,7 +45,7 @@ namespace BlogStore.BusinessLayer.Concrete
 
         public void TInsert(Article entity)
         {
-            if(entity.Title.Length>=10 && entity.Title.Length>=100 && entity.Description!="" && entity.ImageUrl.Contains("a"))
+            if(entity.Title.Length>=10 && entity.Title.Length<=100 && entity.Description!="" && entity.ImageUrl.Contains("a"))
             {
                 _articleDal.Insert(entity);
             }
@@ -63,6 +63,11 @@ namespace BlogStore.BusinessLayer.Concrete
         public List<Article> TGetTop3PopularArticles()
         {
             return _articleDal.GetTop3PopularArticles();
+        }
+
+        public List<Article> TGetArticlesByAppUser(string id)
+        {
+            return _articleDal.GetArticlesByAppUser(id);
         }
     }
 }
